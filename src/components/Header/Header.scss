@@ -1,0 +1,459 @@
+// Variables
+$primary-color: #003553;
+$background-light: #e9f4fe;
+$border-color: #e4e4e4;
+
+// Custom Header with Ant Design
+.custom-header {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 140px !important; // Increased height for navigation menu
+  background: white !important;
+  box-shadow: 0 1px 0 $border-color;
+  z-index: 1000;
+  padding: 0 !important;
+  line-height: normal !important;
+
+  .header-wrapper {
+    max-width: 1344px;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+    padding: 0 20px;
+  }
+
+  // Left Side - Logo (spans full height)
+  .header-left {
+    width: 150px;
+    display: flex;
+    align-items: center;
+    
+    .header-logo {
+      a {
+        text-decoration: none;
+        
+        span {
+          color: $primary-color;
+          font-size: 24px;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  // Right Side - All Content (2 rows)
+  .header-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+
+    // Top Row: Social + Notification + User
+    .header-top-content {
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 8px 0 16px;
+      gap: 12px;
+    }
+
+    // Bottom Row: Search + Navigation
+    .header-bottom-content {
+      height: 60px;
+      border-top: 1px solid $border-color;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 8px 0 16px;
+    }
+  }
+
+  // Language Area - Outermost Right
+  .language-area {
+    width: auto;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+  }
+
+  // top language specifically positioned inside header-top-right
+  .header-top-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .language-area.top-language {
+      padding-left: 12px;
+      .language-selector {
+        margin-right: 0 !important;
+        .ant-select-selector {
+          padding: 2px 6px !important;
+          border-radius: 18px !important;
+        }
+      }
+    }
+  }
+
+  .header-logo {
+    width: 150px;
+    
+    a {
+      text-decoration: none;
+      
+      span {
+        color: $primary-color;
+        font-size: 24px;
+        font-weight: 700;
+      }
+    }
+  }
+
+  // Social Links
+  .social-links {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6px;
+    padding-left: 4px;
+    
+    .social-item {
+      position: relative;
+      padding: 2px 4px;
+      border-radius: 6px;
+      
+      &.with-divider::before {
+        content: '';
+        position: absolute;
+        left: -6px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 2px;
+        height: 12px;
+        background: $primary-color;
+      }
+      
+      .social-link {
+        color: $primary-color !important;
+        font-weight: 600;
+        padding: 0 6px !important;
+        height: 34px !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 6px;
+        border: none !important;
+        box-shadow: none !important;
+        font-size: 13px;
+        
+        &:hover {
+          color: #fff !important;
+          background: $primary-color !important;
+        }
+        
+        .antcon, svg {
+          margin-right: 6px !important;
+        }
+      }
+    }
+  }
+
+  // Notification Area
+  .notification-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    
+    .ant-badge {
+      .notification-btn {
+        width: 40px !important;
+        height: 40px !important;
+        background: $background-light !important;
+        border: none !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        
+        &:hover {
+          background: $background-light !important;
+        }
+      }
+      
+      .ant-badge-count {
+        background: #ff4d4f;
+        border: none;
+        font-size: 10px;
+        font-weight: 600;
+        min-width: 16px;
+        height: 16px;
+        line-height: 14px;
+      }
+    }
+  }
+
+  // Language Selector
+  .language-selector {
+    margin-right: 8px !important;
+    
+    .ant-select-selector {
+      border: 1px solid #00b5f1 !important;
+      border-radius: 18px !important;
+      padding: 2px 6px !important;
+      height: 32px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+    
+    .ant-select-selection-item {
+      color: #00b5f1 !important;
+      font-size: 12px !important;
+      line-height: 1.2 !important;
+    }
+  }
+
+  // Navigation in bottom section
+  .nav-left {
+    .header-search {
+        .ant-input {
+          border-radius: 20px !important;
+          height: 34px !important;
+        }
+        
+        .ant-btn {
+          border-radius: 0 20px 20px 0 !important;
+          height: 34px !important;
+          background: $primary-color !important;
+          border-color: $primary-color !important;
+        }
+      }
+    }
+    
+    .nav-right {
+      .ant-space {
+        gap: 2px !important;
+        
+        .ant-space-item {
+          margin-right: 2px !important;
+        }
+      }
+      
+      .nav-item {
+        color: $primary-color !important;
+        font-weight: 500 !important;
+        padding: 6px 10px !important;
+        height: auto !important;
+        border-radius: 16px !important;
+        font-size: 13px !important;
+        
+        &:hover {
+          background: $background-light !important;
+          color: $primary-color !important;
+        }
+        
+        .anticon {
+          font-size: 10px !important;
+          margin-left: 6px !important;
+        }
+      }
+    }
+  }
+
+
+// Download App Button
+.btnDownloadApp {
+  font-family: Roboto, sans-serif !important;
+  background: #ffb54a !important;
+  border: none !important;
+  border-radius: 30px !important;
+  font-weight: 500 !important;
+  font-size: 16px !important;
+  line-height: 19px !important;
+  padding: 10px 15px !important;
+  gap: 6px !important;
+  color: white !important;
+  
+  &:hover {
+    background: #e6a142 !important;
+    color: white !important;
+  }
+}
+
+// User Name Button
+.btnUserName {
+  width: auto !important;
+  padding: 4px 12px !important;
+  border-radius: 30px !important;
+  border: 1px solid #00b5f1 !important;
+  background: white !important;
+  color: #00b5f1 !important;
+  font-weight: 500 !important;
+  height: auto !important;
+  line-height: 1.2 !important;
+  font-size: 18px !important;
+  
+  &:hover {
+    background: #f0f8ff !important;
+    border-color: #00b5f1 !important;
+    color: #00b5f1 !important;
+  }
+}
+
+// User Dropdown Overlay
+.user-dropdown-overlay {
+  .ant-dropdown {
+    min-width: 158px;
+    
+    .mdbdropdownProfile {
+      &.mdbdropdownMenu {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        padding: 0;
+        overflow: hidden;
+        
+        ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          
+          .item_user {
+            padding: 16px;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            
+            .icon {
+              flex-shrink: 0;
+            }
+            
+            .info {
+              .info_name h4 {
+                margin: 0;
+                font-size: 14px;
+                font-weight: 600;
+                color: $primary-color;
+              }
+              
+              span {
+                font-size: 12px;
+                color: #666;
+              }
+            }
+          }
+          
+          .item_information {
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            
+            &:hover {
+              background-color: #f5f5f5;
+            }
+            
+            &.logOut {
+              border-top: 1px solid #f0f0f0;
+              color: #e74c3c;
+              
+              &:hover {
+                background-color: #fef2f2;
+              }
+            }
+            
+            > div {
+              display: flex;
+              align-items: center;
+              gap: 12px;
+              width: 100%;
+              
+              svg {
+                flex-shrink: 0;
+              }
+              
+              .itemInfo span {
+                font-size: 14px;
+                color: $primary-color;
+              }
+              
+              .icon {
+                display: flex;
+                align-items: center;
+              }
+            }
+          }
+          
+          .version {
+            padding: 8px 16px;
+            font-size: 12px;
+            color: #999;
+            border-top: 1px solid #f0f0f0;
+            background-color: #fafafa;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .custom-header {
+    .header-wrapper {
+      padding: 0 15px;
+      gap: 15px;
+    }
+    
+    .header-logo {
+      width: 120px;
+      
+      span {
+        font-size: 20px !important;
+      }
+    }
+    
+    .social-links {
+      .social-item .social-link {
+        padding: 0 8px !important;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.btnDownloadApp{
+    font-family: Roboto, sans-serif !important;
+    background: #ffb54a;
+    border: none;
+    border-radius: 30px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    padding: 10px 15px;
+    gap: 6px;
+}
+.btnUserName{
+    width: auto;
+    padding: 10px 15px;
+    border-radius: 30px;
+    border: 1px solid #00b5f1;
+    height: auto;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 500;
+    height: auto;
+    display: inline-flex;
+}
+.user-drop-down{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+}
